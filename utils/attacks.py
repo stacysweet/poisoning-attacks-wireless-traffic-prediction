@@ -998,7 +998,7 @@ class NoAttack(DataPoison):
                     optimizer.step()
 
             # self.checkpoint_target()
-
+"""这里process_data接受的参数为什么要处理成两个tuple相加的形式啊"""
             ## update train_loader
             self.train_loader = self.process_data(tuple(self.train_data[::]) + \
                                      tuple(self.train_perts[::]), is_train=True)
