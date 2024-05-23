@@ -102,7 +102,7 @@ class RobustAggregation(object):
         normal_length = update_norms.size(0)
 
         median = torch.median(update_norms[0:normal_length])
-
+        '''sigma = torch.sqrt(torch.median(torch.square(update_norms[0:normal_length] - median)))为什么这么计算 sigma是什么 '''
         sigma = torch.sqrt(torch.median(torch.square(update_norms[0:normal_length] - median)))
 
         if update_norms.max() > 40 * median or \
