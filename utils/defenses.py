@@ -142,6 +142,7 @@ class RobustAggregation(object):
             distances = distance[None, :] if not len(distances) else torch.cat((distances, distance[None, :]), 0)
 
         distances = torch.sort(distances, dim=1)[0]
+        '''为什么len(remaining_updates) - 2 - n_attackers这个数字 '''
         scores = torch.sum(distances[:, :len(remaining_updates) - 2 - n_attackers], dim=1)
         indices = torch.argsort(scores)[:m]
 
