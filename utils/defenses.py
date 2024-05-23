@@ -100,7 +100,7 @@ class RobustAggregation(object):
         update_norms = torch.sort(update_norms)[0]
 
         normal_length = update_norms.size(0)
-
+        '''请问 torch.median接受的参数为什么是update_norms[0:normal_length] '''
         median = torch.median(update_norms[0:normal_length])
         '''sigma = torch.sqrt(torch.median(torch.square(update_norms[0:normal_length] - median)))为什么这么计算 sigma是什么 '''
         sigma = torch.sqrt(torch.median(torch.square(update_norms[0:normal_length] - median)))
