@@ -971,7 +971,9 @@ class ComparisonMetaPoison(DataPoison):
         return [self.train_data[i] + self.train_perts[i] \
                         for i in range(len(self.train_data))]
 
-
+"""有点不明白这里modify_data函数的逻辑是什么
+   为什么attack_models是一个列表，要对这个列表里的每个model逐一训练完之后再把perturbation更新到trainloader里来，然后再返回更新了扰动的数据集，这样做的目的何在
+"""
 class NoAttack(DataPoison):
 
     def modify_data(self, num_rounds=10):
