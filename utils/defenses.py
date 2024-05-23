@@ -48,6 +48,7 @@ class DataPoisonDefense(object):
         print('-------remove {} data from the dataset----'.format(proportion))
         train = list(train)
         adj_dis = 0
+   '''np.abs(train[0][:,0,:] - train[2]) 这是什么？ ''' 
         adj_dis = np.abs(train[0][:,0,:] - train[2])
         for idx in range(1, train[0].shape[1]):
             adj_dis += np.abs(train[0][:,idx,:] - train[0][:,idx-1,:])
